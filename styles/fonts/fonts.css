@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'OpenSansBold'; 
+    src: url('./OpenSans/OpenSans-Bold.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansBoldItalic'; 
+    src: url('./OpenSans/OpenSans-BoldItalic.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansExtraBold'; 
+    src: url('./OpenSans/OpenSans-ExtraBold.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansExtraBoldItalic'; 
+    src: url('./OpenSans/OpenSans-ExtraBoldItalic.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansItalic'; 
+    src: url('./OpenSans/OpenSans-Italic.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansLight'; 
+    src: url('./OpenSans/OpenSans-Light.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansLightItalic'; 
+    src: url('./OpenSans/OpenSans-LightItalic.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansMedium'; 
+    src: url('./OpenSans/OpenSans-Medium.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansMediumItalic'; 
+    src: url('./OpenSans/OpenSans-MediumItalic.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansRegular'; 
+    src: url('./OpenSans/OpenSans-Regular.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansSemiBold'; 
+    src: url('./OpenSans/OpenSans-SemiBold.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: 'OpenSansSemiBoldItalic'; 
+    src: url('./OpenSans/OpenSans-SemiBoldItalic.ttf') format('truetype'); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
