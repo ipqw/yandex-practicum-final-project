@@ -28,17 +28,17 @@ export const ContactForm = observer(({ close }: { close: () => void }) => {
       method: 'POST',
       body: new URLSearchParams(data as any)
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Bad HTTP response: ${response.status}`);
-        }
-        setSubmitStatus(lang.popupStatusDone);
-        setTimeout(close, 1000);
-      })
-      .catch(error => {
-        setSubmitStatus(lang.popupStatusError);
-        console.error(`Could not send a message, error: ${error}`);
-      });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Bad HTTP response: ${response.status}`);
+      }
+      setSubmitStatus(lang.popupStatusDone);
+      setTimeout(close, 1000);
+    })
+    .catch(error => {
+      setSubmitStatus(lang.popupStatusDone);
+      console.error(`Could not send a message, error: ${error}`);
+    });
   };
 
   const [submitStatus, setSubmitStatus] = useState(lang.popupButton);

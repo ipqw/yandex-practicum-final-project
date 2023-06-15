@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { store } from 'store';
 import { Page } from '../../components/Page';
+import { ya_data } from '../../mock/ttt.js'
 
 const MemberPage = observer(() => {
   const router = useRouter();
@@ -25,7 +26,7 @@ const MemberPage = observer(() => {
       .then(data => {
         store.setMembers(data.data);
       })
-      .catch(res => console.error(res));
+      .catch(res => store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en));
   }, [store.lang]);
 
   return (

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { store } from '../../store';
 import { Content } from '../Content';
 import { MemberCard } from '../MemberCard';
+import { ya_data } from '../../mock/ttt.js'
 
 export const Members = observer(() => {
   const lang = useLang();
@@ -21,7 +22,7 @@ export const Members = observer(() => {
       .then(data => {
         store.setMembers(data.data);
       })
-      .catch(res => console.error(res));
+      .catch(res => store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en));
   }, [store.lang]);
 
   const color = store.isDark ? 'white' : 'black';

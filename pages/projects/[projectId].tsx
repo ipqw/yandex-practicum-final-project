@@ -5,6 +5,7 @@ import { observer } from 'mobx-react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { store } from 'store';
+import { ya_data } from '../../mock/ttt.js'
 
 const ProjectPage = observer(() => {
   const router = useRouter();
@@ -24,7 +25,7 @@ const ProjectPage = observer(() => {
       .then(data => {
         store.setMembers(data.data);
       })
-      .catch(res => console.error(res));
+      .catch(res => store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en));
   }, [store.lang]);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const ProjectPage = observer(() => {
       .then(data => {
         store.setProjects(data.data);
       })
-      .catch(res => console.error(res));
+      .catch(res => store.setProjects(store.lang == 'ru' ? ya_data.projects.ru : ya_data.projects.en));
   }, [store.lang]);
   return (
     <Page>

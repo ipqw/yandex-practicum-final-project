@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { store } from '../../store';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
+import { ya_data } from '../../mock/ttt.js'
 
 type IProps = {
   children: ReactNode;
@@ -29,7 +30,12 @@ export const Page = observer((props: IProps) => {
           setIsDisplay(false);
         }, 1500);
       })
-      .catch(res => console.error(res));
+      .catch(res => {
+        store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en)
+        setTimeout(() => {
+          setIsDisplay(false);
+        }, 1500);
+      })
 
     fetch(
       'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
@@ -45,7 +51,12 @@ export const Page = observer((props: IProps) => {
           setIsDisplay(false);
         }, 1500);
       })
-      .catch(res => console.error(res));
+      .catch(res => {
+        store.setProjects(store.lang == 'ru' ? ya_data.projects.ru : ya_data.projects.en)
+        setTimeout(() => {
+          setIsDisplay(false);
+        }, 1500);
+      });
   }, [store.lang]);
 
   return (

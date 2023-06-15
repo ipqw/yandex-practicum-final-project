@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { IProject } from 'types';
 import { store } from '../../store';
 import { ProjectCard } from '../ProjectCard';
+import { ya_data } from '../../mock/ttt.js'
 
 export const Projects = observer(() => {
   const lang = useLang();
@@ -26,7 +27,7 @@ export const Projects = observer(() => {
       .then(data => {
         store.setMembers(data.data);
       })
-      .catch(res => console.error(res));
+      .catch(res => store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en));
   }, [store.lang]);
 
   useEffect(() => {
@@ -43,7 +44,11 @@ export const Projects = observer(() => {
         categories = store.getProjectCategories();
         setDisplayedProjects(store.projects.slice(0, amount));
       })
-      .catch(res => console.error(res));
+      .catch(res => {
+        store.setProjects(store.lang == 'ru' ? ya_data.projects.ru : ya_data.projects.en)
+        categories = store.getProjectCategories();
+        setDisplayedProjects(store.projects.slice(0, amount));
+      });
   }, [store.lang]);
 
   return (
