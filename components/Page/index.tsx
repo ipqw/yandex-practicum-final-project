@@ -16,47 +16,56 @@ export const Page = observer((props: IProps) => {
   const [isDisplay, setIsDisplay] = useState(true);
 
   useEffect(() => {
-    fetch(
-      'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
-        new URLSearchParams({
-          locale: store.lang,
-          datatype: 'members'
-        })
-    )
-      .then(res => res.json())
-      .then(data => {
-        store.setMembers(data.data);
-        setTimeout(() => {
-          setIsDisplay(false);
-        }, 1500);
-      })
-      .catch(res => {
-        store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en)
-        setTimeout(() => {
-          setIsDisplay(false);
-        }, 1500);
-      })
-
-    fetch(
-      'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
-        new URLSearchParams({
-          locale: store.lang,
-          datatype: 'projects'
-        })
-    )
-      .then(res => res.json())
-      .then(data => {
-        store.setProjects(data.data);
-        setTimeout(() => {
-          setIsDisplay(false);
-        }, 1500);
-      })
-      .catch(res => {
-        store.setProjects(store.lang == 'ru' ? ya_data.projects.ru : ya_data.projects.en)
-        setTimeout(() => {
-          setIsDisplay(false);
-        }, 1500);
-      });
+    // При рабочем сервере
+    // fetch(
+    //   'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
+    //     new URLSearchParams({
+    //       locale: store.lang,
+    //       datatype: 'members'
+    //     })
+    // )
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     store.setMembers(data.data);
+    //     setTimeout(() => {
+    //       setIsDisplay(false);
+    //     }, 1500);
+    //   })
+    //   .catch(res => {
+    //     store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en)
+    //     setTimeout(() => {
+    //       setIsDisplay(false);
+    //     }, 1500);
+    //   })
+    store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en)
+    setTimeout(() => {
+      setIsDisplay(false);
+    }, 1500);
+    // При рабочем сервере
+    // fetch(
+    //   'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
+    //     new URLSearchParams({
+    //       locale: store.lang,
+    //       datatype: 'projects'
+    //     })
+    // )
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     store.setProjects(data.data);
+    //     setTimeout(() => {
+    //       setIsDisplay(false);
+    //     }, 1500);
+    //   })
+    //   .catch(res => {
+    //     store.setProjects(store.lang == 'ru' ? ya_data.projects.ru : ya_data.projects.en)
+    //     setTimeout(() => {
+    //       setIsDisplay(false);
+    //     }, 1500);
+    //   });
+    store.setProjects(store.lang == 'ru' ? ya_data.projects.ru : ya_data.projects.en)
+    setTimeout(() => {
+      setIsDisplay(false);
+    }, 1500);
   }, [store.lang]);
 
   return (

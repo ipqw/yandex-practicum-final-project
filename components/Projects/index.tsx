@@ -16,39 +16,45 @@ export const Projects = observer(() => {
   const [displayedProjects, setDisplayedProjects] = useState(Array<IProject>);
 
   useEffect(() => {
-    fetch(
-      'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
-        new URLSearchParams({
-          locale: store.lang,
-          datatype: 'members'
-        })
-    )
-      .then(res => res.json())
-      .then(data => {
-        store.setMembers(data.data);
-      })
-      .catch(res => store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en));
+    // При рабочем сервере
+    // fetch(
+    //   'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
+    //     new URLSearchParams({
+    //       locale: store.lang,
+    //       datatype: 'members'
+    //     })
+    // )
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     store.setMembers(data.data);
+    //   })
+    //   .catch(res => store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en));
+    store.setMembers(store.lang == 'ru' ? ya_data.members.ru : ya_data.members.en)
   }, [store.lang]);
 
   useEffect(() => {
-    fetch(
-      'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
-        new URLSearchParams({
-          locale: store.lang,
-          datatype: 'projects'
-        })
-    )
-      .then(res => res.json())
-      .then(data => {
-        store.setProjects(data.data);
-        categories = store.getProjectCategories();
-        setDisplayedProjects(store.projects.slice(0, amount));
-      })
-      .catch(res => {
-        store.setProjects(store.lang == 'ru' ? ya_data.projects.ru : ya_data.projects.en)
-        categories = store.getProjectCategories();
-        setDisplayedProjects(store.projects.slice(0, amount));
-      });
+    // При рабочем сервере
+    // fetch(
+    //   'https://betterweb.akmit.ru/betterweb/api/v1/getData?' +
+    //     new URLSearchParams({
+    //       locale: store.lang,
+    //       datatype: 'projects'
+    //     })
+    // )
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     store.setProjects(data.data);
+    //     categories = store.getProjectCategories();
+    //     setDisplayedProjects(store.projects.slice(0, amount));
+    //   })
+    //   .catch(res => {
+    //     store.setProjects(store.lang == 'ru' ? ya_data.projects.ru : ya_data.projects.en)
+    //     categories = store.getProjectCategories();
+    //     setDisplayedProjects(store.projects.slice(0, amount));
+    //   });
+    store.setProjects(store.lang == 'ru' ? ya_data.projects.ru : ya_data.projects.en)
+    categories = store.getProjectCategories();
+    setDisplayedProjects(store.projects.slice(0, amount));
   }, [store.lang]);
 
   return (
